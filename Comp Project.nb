@@ -1,0 +1,310 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     12208,        301]
+NotebookOptionsPosition[     11776,        283]
+NotebookOutlinePosition[     12195,        299]
+CellTagsIndexPosition[     12152,        296]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ StyleBox["We decided to create an interactive graph using the Manipulate \
+function to explore Diffraction Patters with different numbers of slits. The \
+Manipulate function lets the user manipulate different variables that are \
+indicated at the top of the graph. To insert the needed plot, we used the \
+ChebyshevU command which gives the Chebyshev polynomial Subscript[U, n](x). \
+The \[OpenCurlyDoubleQuote]Item[Control...\[CloseCurlyDoubleQuote] commands \
+allow us to create the different manipulators seen on the graph\n",
+  FontSize->14],
+ "\n",
+ StyleBox["b = slit spacing\na = slit width\nR = distance from screen to \
+slits\nk = wave number\nSlits = number of slits",
+  FontSize->14]
+}], "Text",
+ CellChangeTimes->{{3.642465306082305*^9, 3.642465368643905*^9}, {
+  3.6425260771211605`*^9, 3.6425260823314586`*^9}, {3.6425300728347025`*^9, 
+  3.642530080053115*^9}, {3.6425316860029707`*^9, 3.6425316876970673`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"1", "/", "Slits"}], ")"}], 
+          RowBox[{"ChebyshevU", "[", 
+           RowBox[{
+            RowBox[{"Slits", "-", "1"}], ",", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"b", " ", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"k", " ", 
+                 RowBox[{"x", "/", "R"}]}], ")"}], "/", "2"}]}], "]"}]}], 
+           "]"}], 
+          RowBox[{"Sinc", "[", 
+           RowBox[{"a", " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"k", " ", 
+               RowBox[{"x", "/", "R"}]}], ")"}], " ", "/", "2"}]}], "]"}]}], 
+         ")"}], "^", "2"}], ",", 
+       RowBox[{
+        RowBox[{"Sinc", "[", 
+         RowBox[{"a", " ", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"k", " ", 
+             RowBox[{"x", "/", "R"}]}], ")"}], "/", "2"}]}], "]"}], "^", 
+        "2"}]}], "}"}], " ", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "4"}], ",", "4"}], "}"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", 
+      RowBox[{
+       RowBox[{"ToString", "[", "Slits", "]"}], "<>", 
+       "\"\< Slit Diffraction Pattern\>\""}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1.1"}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Red", ",", "Thick"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Dashed", ",", "Purple", ",", "Thick"}], "}"}]}], "}"}]}], 
+     ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1100", ",", "500"}], "}"}]}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Position\>\"", ",", "\"\<Intensity\>\""}], "}"}]}]}], 
+    "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Grid", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Item", "[", 
+         RowBox[{"Control", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"b", ",", "1", ",", "\"\<Slit Spacing (mm)\>\""}], "}"}],
+             ",", "1", ",", "2", ",", 
+            RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", 
+            RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+            RowBox[{"Alignment", "\[Rule]", "Right"}]}], 
+           "\[IndentingNewLine]", "}"}], "]"}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Item", "[", 
+         RowBox[{"Control", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"a", ",", "0.2", ",", "\"\<Slit Width (\[Mu]m)\>\""}], 
+             "}"}], ",", "0", ",", "1", ",", 
+            RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", 
+            RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], 
+            "\[IndentingNewLine]", ",", 
+            RowBox[{"Alignment", "\[Rule]", "Right"}]}], "}"}], "]"}], 
+         "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Item", "[", 
+         RowBox[{"Control", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+             "R", ",", "1", ",", 
+              "\"\<Distance From Screen to Slits (cm)\>\""}], "}"}], ",", "1",
+             ",", "3", ",", 
+            RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", 
+            RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], 
+            "\[IndentingNewLine]", ",", 
+            RowBox[{"Alignment", "\[Rule]", "Right"}]}], "}"}], "]"}], "]"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{"Item", "[", 
+         RowBox[{"Control", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+             "k", ",", "12.5", ",", 
+              "\"\<Wave Number (\!\(\*SuperscriptBox[\(m\), \(-1\)]\))\>\""}],
+              "}"}], ",", "12.5", ",", "25", ",", 
+            RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", 
+            RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], 
+            "\[IndentingNewLine]", ",", 
+            RowBox[{"Alignment", "\[Rule]", "Right"}]}], "}"}], "]"}], 
+         "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"Item", "[", 
+        RowBox[{"Control", "[", 
+         RowBox[{"{", 
+          RowBox[{"Slits", ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6"}], 
+            "}"}]}], "}"}], "]"}], "]"}], "}"}]}], "}"}], "]"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.6425299454544163`*^9, 3.6425300439510503`*^9}, {
+  3.642530140597578*^9, 3.64253017839074*^9}, {3.6425302283215957`*^9, 
+  3.6425302765513544`*^9}, {3.642530341795086*^9, 3.6425303930810194`*^9}, {
+  3.6425304347444024`*^9, 3.6425305405384536`*^9}, {3.642530582600859*^9, 
+  3.642530662015402*^9}, {3.6425307360126343`*^9, 3.642530762551152*^9}, {
+  3.6425308600127263`*^9, 3.6425309042292557`*^9}, {3.64253101988387*^9, 
+  3.6425311289661093`*^9}, {3.6425313651216173`*^9, 3.6425315054126415`*^9}, {
+  3.6425334165069494`*^9, 3.6425334404053164`*^9}, {3.642533523709081*^9, 
+  3.6425335858716364`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0.316, $CellContext`b$$ = 
+    1.658, $CellContext`k$$ = 21.939999999999998`, $CellContext`R$$ = 
+    2.208, $CellContext`Slits$$ = 2, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`b$$], 1, "Slit Spacing (mm)"}, 1, 2}, {{
+       Hold[$CellContext`a$$], 0.2, "Slit Width (\[Mu]m)"}, 0, 1}, {{
+       Hold[$CellContext`R$$], 1, "Distance From Screen to Slits (cm)"}, 1, 
+      3}, {{
+       Hold[$CellContext`k$$], 12.5, 
+       "Wave Number (\!\(\*SuperscriptBox[\(m\), \(-1\)]\))"}, 12.5, 25}, {
+      Hold[$CellContext`Slits$$], {1, 2, 3, 4, 5, 6}}, {
+      Hold[
+       Grid[{{
+          Item[
+           Manipulate`Place[1]], 
+          Item[
+           Manipulate`Place[2]]}, {
+          Item[
+           Manipulate`Place[3]], 
+          Item[
+           Manipulate`Place[4]]}, {
+          Item[
+           Manipulate`Place[5]]}}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {1100., {248., 252.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`b$65769$$ = 0, $CellContext`a$65770$$ = 
+    0, $CellContext`R$65771$$ = 0, $CellContext`k$65772$$ = 
+    0, $CellContext`Slits$65773$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 0.2, $CellContext`b$$ = 
+        1, $CellContext`k$$ = 12.5, $CellContext`R$$ = 
+        1, $CellContext`Slits$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`b$$, $CellContext`b$65769$$, 0], 
+        Hold[$CellContext`a$$, $CellContext`a$65770$$, 0], 
+        Hold[$CellContext`R$$, $CellContext`R$65771$$, 0], 
+        Hold[$CellContext`k$$, $CellContext`k$65772$$, 0], 
+        Hold[$CellContext`Slits$$, $CellContext`Slits$65773$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[{((1/$CellContext`Slits$$) ChebyshevU[$CellContext`Slits$$ - 1, 
+            
+            Cos[$CellContext`b$$ (($CellContext`k$$ \
+($CellContext`x/$CellContext`R$$))/2)]] 
+          Sinc[$CellContext`a$$ (($CellContext`k$$ \
+($CellContext`x/$CellContext`R$$))/2)])^2, 
+         Sinc[$CellContext`a$$ (($CellContext`k$$ \
+($CellContext`x/$CellContext`R$$))/2)]^2}, {$CellContext`x, -4, 4}, PlotLabel -> 
+        StringJoin[
+          ToString[$CellContext`Slits$$], " Slit Diffraction Pattern"], 
+        PlotRange -> {0, 1.1}, 
+        PlotStyle -> {{Red, Thick}, {Dashed, Purple, Thick}}, 
+        ImageSize -> {1100, 500}, AxesLabel -> {"Position", "Intensity"}], 
+      "Specifications" :> {{{$CellContext`b$$, 1, "Slit Spacing (mm)"}, 1, 2, 
+         ImageSize -> Medium, Appearance -> "Labeled", Alignment -> Right, 
+         ControlPlacement -> 
+         1}, {{$CellContext`a$$, 0.2, "Slit Width (\[Mu]m)"}, 0, 1, ImageSize -> 
+         Medium, Appearance -> "Labeled", Alignment -> Right, 
+         ControlPlacement -> 
+         2}, {{$CellContext`R$$, 1, "Distance From Screen to Slits (cm)"}, 1, 
+         3, ImageSize -> Medium, Appearance -> "Labeled", Alignment -> Right, 
+         ControlPlacement -> 
+         3}, {{$CellContext`k$$, 12.5, 
+          "Wave Number (\!\(\*SuperscriptBox[\(m\), \(-1\)]\))"}, 12.5, 25, 
+         ImageSize -> Medium, Appearance -> "Labeled", Alignment -> Right, 
+         ControlPlacement -> 4}, {$CellContext`Slits$$, {1, 2, 3, 4, 5, 6}, 
+         ControlPlacement -> 5}, 
+        Grid[{{
+           Item[
+            Manipulate`Place[1]], 
+           Item[
+            Manipulate`Place[2]]}, {
+           Item[
+            Manipulate`Place[3]], 
+           Item[
+            Manipulate`Place[4]]}, {
+           Item[
+            Manipulate`Place[5]]}}]}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1149., {333., 340.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.64253110536676*^9, 3.6425311296001463`*^9}, {
+   3.6425313676647625`*^9, 3.6425314011606784`*^9}, {3.6425314619791565`*^9, 
+   3.6425315154552155`*^9}, {3.642533417350998*^9, 3.6425334411413584`*^9}, 
+   3.6425336000854497`*^9}]
+}, Open  ]]
+},
+WindowSize->{1920, 980},
+WindowMargins->{{-9, Automatic}, {Automatic, -9}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> True}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (July 1, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 943, 16, 162, "Text"],
+Cell[CellGroupData[{
+Cell[1525, 40, 5504, 139, 287, "Input"],
+Cell[7032, 181, 4728, 99, 690, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
